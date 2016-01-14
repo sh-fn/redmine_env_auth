@@ -94,6 +94,7 @@ module RedmineEnvAuth
           session[:ctime] = Time.now.utc.to_i
           session[:atime] = Time.now.utc.to_i
           user.update_attribute(:last_login_on, Time.now)
+          start_user_session(user)
           User.current = user
         else
           return nil
